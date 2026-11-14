@@ -1,0 +1,22 @@
+{
+  "globals": {
+    "app": {
+      "kind": "class",
+      "type": "InCopyApplication",
+      "detail": "InCopy Application",
+      "documentation": "Initial InCopy host profile. Expand with the InCopy object reference catalog."
+    }
+  },
+  "types": {
+    "InCopyApplication": {
+      "members": {
+        "activeDocument": {"type": "Document"},
+        "documents": {"type": "DocumentCollection"},
+        "selection": {"type": "Array"},
+        "version": {"type": "string"},
+        "open": {"kind": "method", "type": "Document", "parameters": "file, showingWindow"},
+        "doScript": {"kind": "method", "type": "Object", "parameters": "script, language, arguments, undoMode, undoName"}
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "globals": {
+    "app": {
+      "kind": "class",
+      "type": "Application",
+      "detail": "InDesign Server Application",
+      "documentation": "InDesign Server application object."
+    }
+  }
+}

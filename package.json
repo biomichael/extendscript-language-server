@@ -1,0 +1,136 @@
+{
+  "name": "extendscript-language-server",
+  "displayName": "ExtendScript Language Server",
+  "description": "Autocomplete and documentation for Adobe ExtendScript in Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "extendscript-language-server",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hennamann/extendscript-language-server.git"
+  },
+  "engines": {
+    "vscode": ">=1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "ExtendScript",
+    "Adobe",
+    "InDesign",
+    "Illustrator",
+    "autocomplete",
+    "language server"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:extendscript",
+    "onCommand:extendscript.reloadApi",
+    "onCommand:extendscript.useForCurrentFile"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "extendscript",
+        "aliases": [
+          "ExtendScript",
+          "Adobe ExtendScript",
+          "JSX"
+        ],
+        "extensions": [
+          ".jsx",
+          ".jsxinc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "extendscript",
+        "scopeName": "source.js.extendscript",
+        "path": "./syntaxes/jsx.tmLanguage"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "extendscript",
+        "path": "./snippets/extendscript.json"
+      },
+      {
+        "language": "extendscript",
+        "path": "./snippets/reference-extendscript.json"
+      }
+    ],
+    "configuration": {
+      "title": "ExtendScript",
+      "properties": {
+        "extendscript.host": {
+          "type": "string",
+          "default": "indesign",
+          "enum": [
+            "indesign",
+            "photoshop",
+            "indesign-server",
+            "incopy",
+            "illustrator"
+          ],
+          "enumDescriptions": [
+            "Adobe InDesign API profile.",
+            "Adobe Photoshop API profile.",
+            "Adobe InDesign Server API profile.",
+            "Adobe InCopy API profile.",
+            "Adobe Illustrator API profile."
+          ],
+          "description": "Adobe application whose object model should be used for completion."
+        },
+        "extendscript.apiPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Optional paths to JSON API catalog files to merge with the selected host profile."
+        },
+        "extendscript.enableInUntitled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable ExtendScript completion in unsaved untitled editors, including plaintext untitled buffers."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "extendscript.reloadApi",
+        "title": "ExtendScript: Reload API Catalog"
+      },
+      {
+        "command": "extendscript.useForCurrentFile",
+        "title": "ExtendScript: Use for Current File"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test",
+    "package": "vsce package",
+    "generate:indesign": "node tools/generate-indesign-catalog.js"
+  },
+  "files": [
+    "src/**",
+    "data/**",
+    "syntaxes/**",
+    "language-configuration.json",
+    "snippets/**",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "package.json"
+  ],
+  "devDependencies": {
+    "@vscode/vsce": "2.15.0"
+  },
+  "dependencies": {
+    "acorn": "^8.15.0"
+  }
+}

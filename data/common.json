@@ -1,0 +1,129 @@
+{
+  "globals": {
+    "File": {
+      "kind": "class",
+      "type": "File",
+      "detail": "ExtendScript File",
+      "documentation": "Represents a file on the local file system.",
+      "parameters": "path"
+    },
+    "Folder": {
+      "kind": "class",
+      "type": "Folder",
+      "detail": "ExtendScript Folder",
+      "documentation": "Represents a folder on the local file system.",
+      "parameters": "path"
+    },
+    "BridgeTalk": {
+      "kind": "class",
+      "type": "BridgeTalk",
+      "detail": "Adobe BridgeTalk",
+      "documentation": "Communicates between Adobe applications.",
+      "parameters": ""
+    },
+    "UnitValue": {
+      "kind": "class",
+      "type": "UnitValue",
+      "detail": "ExtendScript UnitValue",
+      "documentation": "A numeric value with a unit of measurement.",
+      "parameters": "value, unit"
+    },
+    "$": {
+      "kind": "class",
+      "type": "Dollar",
+      "detail": "ExtendScript global object",
+      "documentation": "The ExtendScript global `$` object."
+    },
+    "undefined": {
+      "kind": "constant",
+      "type": "undefined",
+      "detail": "undefined"
+    },
+    "alert": {
+      "kind": "method",
+      "type": "void",
+      "parameters": "message, title, errorIcon",
+      "detail": "ExtendScript global function",
+      "documentation": "Displays a modal alert dialog."
+    },
+    "NaN": {
+      "kind": "constant",
+      "type": "number",
+      "detail": "number"
+    }
+  },
+  "types": {
+    "File": {
+      "members": {
+        "absoluteURI": {"type": "string", "documentation": "The absolute URI of the file."},
+        "alias": {"type": "boolean", "documentation": "Whether this file object is an alias."},
+        "displayName": {"type": "string"},
+        "encoding": {"type": "string"},
+        "exists": {"type": "boolean", "documentation": "Whether the file exists."},
+        "fsName": {"type": "string"},
+        "fullName": {"type": "string"},
+        "length": {"type": "number"},
+        "name": {"type": "string"},
+        "open": {"kind": "method", "type": "boolean", "parameters": "mode"},
+        "close": {"kind": "method", "type": "boolean", "parameters": ""},
+        "read": {"kind": "method", "type": "string", "parameters": ""},
+        "write": {"kind": "method", "type": "boolean", "parameters": "text"},
+        "writeln": {"kind": "method", "type": "boolean", "parameters": "text"},
+        "remove": {"kind": "method", "type": "boolean", "parameters": ""},
+        "copy": {"kind": "method", "type": "boolean", "parameters": "target"},
+        "rename": {"kind": "method", "type": "boolean", "parameters": "newName"},
+        "execute": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "Folder": {
+      "members": {
+        "absoluteURI": {"type": "string"},
+        "exists": {"type": "boolean"},
+        "fsName": {"type": "string"},
+        "fullName": {"type": "string"},
+        "name": {"type": "string"},
+        "parent": {"type": "Folder"},
+        "getFiles": {"kind": "method", "type": "Array", "parameters": "mask"},
+        "create": {"kind": "method", "type": "boolean", "parameters": ""},
+        "remove": {"kind": "method", "type": "boolean", "parameters": ""},
+        "execute": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "BridgeTalk": {
+      "members": {
+        "appName": {"type": "string"},
+        "body": {"type": "string"},
+        "onError": {"kind": "method", "type": "void", "parameters": "error"},
+        "onResult": {"kind": "method", "type": "void", "parameters": "result"},
+        "send": {"kind": "method", "type": "boolean", "parameters": "timeout"},
+        "sendResult": {"kind": "method", "type": "BridgeTalk", "parameters": "timeout"}
+      }
+    },
+    "UnitValue": {
+      "members": {
+        "type": {"type": "string"},
+        "value": {"type": "number"},
+        "as": {"kind": "method", "type": "number", "parameters": "unit"},
+        "convert": {"kind": "method", "type": "boolean", "parameters": "unit"},
+        "toString": {"kind": "method", "type": "string", "parameters": ""}
+      }
+    },
+    "Dollar": {
+      "members": {
+        "appEncoding": {"type": "string"},
+        "build": {"type": "string"},
+        "buildDate": {"type": "string"},
+        "engineName": {"type": "string"},
+        "fileName": {"type": "File"},
+        "global": {"type": "Object"},
+        "line": {"type": "number"},
+        "locale": {"type": "string"},
+        "os": {"type": "string"},
+        "version": {"type": "string"},
+        "sleep": {"kind": "method", "type": "void", "parameters": "milliseconds"},
+        "write": {"kind": "method", "type": "void", "parameters": "text"},
+        "writeln": {"kind": "method", "type": "void", "parameters": "text"}
+      }
+    }
+  }
+}

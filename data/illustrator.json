@@ -1,0 +1,35 @@
+{
+  "globals": {
+    "app": {
+      "kind": "class",
+      "type": "IllustratorApplication",
+      "detail": "Illustrator Application",
+      "documentation": "Initial Illustrator host profile. Expand with the Illustrator object reference catalog."
+    }
+  },
+  "types": {
+    "IllustratorApplication": {
+      "members": {
+        "activeDocument": {"type": "IllustratorDocument"},
+        "documents": {"type": "IllustratorDocumentCollection"},
+        "selection": {"type": "Array"},
+        "version": {"type": "string"},
+        "open": {"kind": "method", "type": "IllustratorDocument", "parameters": "file"},
+        "quit": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "IllustratorDocument": {
+      "members": {
+        "name": {"type": "string"},
+        "fullName": {"type": "File"},
+        "layers": {"type": "Array"},
+        "pageItems": {"type": "Array"},
+        "pathItems": {"type": "Array"},
+        "textFrames": {"type": "Array"},
+        "close": {"kind": "method", "type": "void", "parameters": "saveOptions"},
+        "save": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "IllustratorDocumentCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "IllustratorDocument", "parameters": "index"}}}
+  }
+}

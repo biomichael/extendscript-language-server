@@ -1,0 +1,312 @@
+{
+  "globals": {
+    "app": {
+      "kind": "class",
+      "type": "Application",
+      "detail": "InDesign Application",
+      "documentation": "The InDesign application object."
+    }
+  },
+  "types": {
+    "Application": {
+      "members": {
+        "activeDocument": {"type": "Document", "documentation": "The active InDesign document."},
+        "activeWindow": {"type": "Window", "documentation": "The active layout window."},
+        "documents": {"type": "DocumentCollection"},
+        "selection": {"type": "Array", "documentation": "The current selection."},
+        "scriptArgs": {"type": "ScriptArgs"},
+        "scriptPreferences": {"type": "ScriptPreferences"},
+        "version": {"type": "string"},
+        "locale": {"type": "string"},
+        "open": {"kind": "method", "type": "Document", "parameters": "file, showingWindow"},
+        "doScript": {"kind": "method", "type": "Object", "parameters": "script, language, arguments, undoMode, undoName"},
+        "findTextPreferences": {"type": "FindTextPreference"},
+        "changeTextPreferences": {"type": "ChangeTextPreference"},
+        "findGrepPreferences": {"type": "FindGrepPreference"},
+        "changeGrepPreferences": {"type": "ChangeGrepPreference"},
+        "menuActions": {"type": "MenuActionCollection"},
+        "documents": {"type": "DocumentCollection"}
+      }
+    },
+    "Document": {
+      "members": {
+        "name": {"type": "string"},
+        "fullName": {"type": "File"},
+        "pages": {"type": "PageCollection"},
+        "spreads": {"type": "SpreadCollection"},
+        "stories": {"type": "StoryCollection"},
+        "textFrames": {"type": "TextFrameCollection"},
+        "rectangles": {"type": "RectangleCollection"},
+        "ovals": {"type": "OvalCollection"},
+        "polygons": {"type": "PolygonCollection"},
+        "groups": {"type": "GroupCollection"},
+        "layers": {"type": "LayerCollection"},
+        "links": {"type": "LinkCollection"},
+        "swatches": {"type": "SwatchCollection"},
+        "colors": {"type": "ColorCollection"},
+        "characterStyles": {"type": "CharacterStyleCollection"},
+        "paragraphStyles": {"type": "ParagraphStyleCollection"},
+        "masterSpreads": {"type": "MasterSpreadCollection"},
+        "viewPreferences": {"type": "ViewPreferences"},
+        "documentPreferences": {"type": "DocumentPreferences"},
+        "exportFile": {"kind": "method", "type": "void", "parameters": "format, to, showingOptions"},
+        "save": {"kind": "method", "type": "void", "parameters": "to, versionComments"},
+        "close": {"kind": "method", "type": "void", "parameters": "saveOptions, savingIn"},
+        "undo": {"kind": "method", "type": "void", "parameters": ""},
+        "redo": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "Page": {
+      "members": {
+        "name": {"type": "string"},
+        "bounds": {"type": "Array"},
+        "textFrames": {"type": "TextFrameCollection"},
+        "rectangles": {"type": "RectangleCollection"},
+        "ovals": {"type": "OvalCollection"},
+        "polygons": {"type": "PolygonCollection"},
+        "pageItems": {"type": "PageItemCollection"},
+        "groups": {"type": "GroupCollection"},
+        "appliedMaster": {"type": "MasterSpread"},
+        "documentOffset": {"type": "number"},
+        "place": {"kind": "method", "type": "Array", "parameters": "file, placePoint, autoflowing"}
+      }
+    },
+    "TextFrame": {
+      "members": {
+        "contents": {"type": "string"},
+        "parentStory": {"type": "Story"},
+        "paragraphs": {"type": "ParagraphCollection"},
+        "characters": {"type": "CharacterCollection"},
+        "words": {"type": "WordCollection"},
+        "lines": {"type": "LineCollection"},
+        "textRange": {"type": "Text"},
+        "geometricBounds": {"type": "Array"},
+        "visibleBounds": {"type": "Array"},
+        "itemLayer": {"type": "Layer"},
+        "move": {"kind": "method", "type": "void", "parameters": "to, by"},
+        "remove": {"kind": "method", "type": "void", "parameters": ""},
+        "duplicate": {"kind": "method", "type": "TextFrame", "parameters": "to, by"},
+        "exportFile": {"kind": "method", "type": "void", "parameters": "format, to, showingOptions"}
+      }
+    },
+    "PageItem": {
+      "members": {
+        "name": {"type": "string"},
+        "locked": {"type": "boolean"},
+        "visible": {"type": "boolean"},
+        "geometricBounds": {"type": "Array"},
+        "visibleBounds": {"type": "Array"},
+        "fillColor": {"type": "Color"},
+        "strokeColor": {"type": "Color"},
+        "strokeWeight": {"type": "number"},
+        "itemLayer": {"type": "Layer"},
+        "move": {"kind": "method", "type": "void", "parameters": "to, by"},
+        "remove": {"kind": "method", "type": "void", "parameters": ""},
+        "duplicate": {"kind": "method", "type": "PageItem", "parameters": "to, by"},
+        "resize": {"kind": "method", "type": "void", "parameters": "in, from, by, around"}
+      }
+    },
+    "DocumentCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "Document", "parameters": "index"}, "itemByName": {"kind": "method", "type": "Document", "parameters": "name"}, "add": {"kind": "method", "type": "Document", "parameters": ""}}},
+    "PageCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "Page", "parameters": "index"}, "itemByName": {"kind": "method", "type": "Page", "parameters": "name"}, "add": {"kind": "method", "type": "Page", "parameters": "location, appliedMaster"}, "everyItem": {"kind": "method", "type": "Page", "parameters": ""}}},
+    "TextFrameCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "TextFrame", "parameters": "index"}, "itemByName": {"kind": "method", "type": "TextFrame", "parameters": "name"}, "itemByRange": {"kind": "method", "type": "Array", "parameters": "from, to"}, "add": {"kind": "method", "type": "TextFrame", "propertiesType": "TextFrame", "parameters": ""}, "everyItem": {"kind": "method", "type": "TextFrame", "parameters": ""}}},
+    "StoryCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "Story", "parameters": "index"}, "everyItem": {"kind": "method", "type": "Story", "parameters": ""}}},
+    "PageItemCollection": {"members": {"length": {"type": "number"}, "item": {"kind": "method", "type": "PageItem", "parameters": "index"}, "everyItem": {"kind": "method", "type": "PageItem", "parameters": ""}}},
+    "ScriptArgs": {"members": {"count": {"type": "number"}, "isDefined": {"kind": "method", "type": "boolean", "parameters": "key"}, "getValue": {"kind": "method", "type": "string", "parameters": "key"}, "setValue": {"kind": "method", "type": "void", "parameters": "key, value"}}},
+    "Window": {"members": {"activePage": {"type": "Page"}, "activeSpread": {"type": "Spread"}, "zoomPercentage": {"type": "number"}, "select": {"kind": "method", "type": "void", "parameters": "pageItem"}}},
+    "Layer": {"members": {"name": {"type": "string"}, "visible": {"type": "boolean"}, "locked": {"type": "boolean"}, "remove": {"kind": "method", "type": "void", "parameters": ""}}},
+    "Color": {"members": {"name": {"type": "string"}, "model": {"type": "string"}, "space": {"type": "string"}, "colorValue": {"type": "Array"}}}
+    ,"CharacterStyleCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "CharacterStyle", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "CharacterStyle", "parameters": "name"},
+        "add": {"kind": "method", "type": "CharacterStyle", "propertiesType": "CharacterStyle", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "CharacterStyle", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "CharacterStyle", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "CharacterStyle", "parameters": ""}
+      }
+    },
+    "CharacterStyle": {
+      "members": {
+        "name": {"type": "string"},
+        "isValid": {"type": "boolean"},
+        "basedOn": {"type": "CharacterStyle"},
+        "appliedFont": {"type": "Object"},
+        "fontStyle": {"type": "string"},
+        "pointSize": {"type": "number"},
+        "leading": {"type": "number"},
+        "tracking": {"type": "number"},
+        "fillColor": {"type": "Color"},
+        "strokeColor": {"type": "Color"},
+        "noBreak": {"type": "boolean"},
+        "duplicate": {"kind": "method", "type": "CharacterStyle", "parameters": "to"},
+        "remove": {"kind": "method", "type": "void", "parameters": "replacingWith"}
+      }
+    },
+    "ParagraphStyleCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "ParagraphStyle", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "ParagraphStyle", "parameters": "name"},
+        "add": {"kind": "method", "type": "ParagraphStyle", "propertiesType": "ParagraphStyle", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "ParagraphStyle", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "ParagraphStyle", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "ParagraphStyle", "parameters": ""}
+      }
+    },
+    "ParagraphStyle": {
+      "members": {
+        "name": {"type": "string"},
+        "isValid": {"type": "boolean"},
+        "basedOn": {"type": "ParagraphStyle"},
+        "nestedGrepStyles": {"type": "NestedGrepStyleCollection"},
+        "appliedFont": {"type": "Object"},
+        "pointSize": {"type": "number"},
+        "leading": {"type": "number"},
+        "justification": {"type": "Object"},
+        "fillColor": {"type": "Color"},
+        "duplicate": {"kind": "method", "type": "ParagraphStyle", "parameters": "to"},
+        "remove": {"kind": "method", "type": "void", "parameters": "replacingWith"}
+      }
+    },
+    "NestedGrepStyleCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "NestedGrepStyle", "parameters": "index"},
+        "add": {"kind": "method", "type": "NestedGrepStyle", "propertiesType": "NestedGrepStyle", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "NestedGrepStyle", "parameters": ""}
+      }
+    },
+    "NestedGrepStyle": {
+      "members": {
+        "appliedCharacterStyle": {"type": "CharacterStyle"},
+        "grepExpression": {"type": "string"},
+        "remove": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "RectangleCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PageItem", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "PageItem", "parameters": "name"},
+        "add": {"kind": "method", "type": "PageItem", "propertiesType": "PageItem", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "PageItem", "parameters": ""}
+      }
+    },
+    "OvalCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PageItem", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "PageItem", "parameters": "name"},
+        "add": {"kind": "method", "type": "PageItem", "propertiesType": "PageItem", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "PageItem", "parameters": ""}
+      }
+    },
+    "PolygonCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PageItem", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "PageItem", "parameters": "name"},
+        "add": {"kind": "method", "type": "PageItem", "propertiesType": "PageItem", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "PageItem", "parameters": ""}
+      }
+    },
+    "GroupCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PageItem", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "PageItem", "parameters": "name"},
+        "add": {"kind": "method", "type": "PageItem", "propertiesType": "PageItem", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "PageItem", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "PageItem", "parameters": ""}
+      }
+    },
+    "LayerCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "Layer", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "Layer", "parameters": "name"},
+        "add": {"kind": "method", "type": "Layer", "propertiesType": "Layer", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "Layer", "parameters": ""},
+        "firstItem": {"kind": "method", "type": "Layer", "parameters": ""},
+        "lastItem": {"kind": "method", "type": "Layer", "parameters": ""}
+      }
+    },
+    "LinkCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "Link", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "Link", "parameters": "name"},
+        "everyItem": {"kind": "method", "type": "Link", "parameters": ""}
+      }
+    },
+    "Link": {
+      "members": {
+        "name": {"type": "string"},
+        "filePath": {"type": "string"},
+        "status": {"type": "Object"},
+        "parent": {"type": "Object"},
+        "relink": {"kind": "method", "type": "void", "parameters": "file"},
+        "update": {"kind": "method", "type": "void", "parameters": ""},
+        "remove": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "SwatchCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "Color", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "Color", "parameters": "name"},
+        "add": {"kind": "method", "type": "Color", "propertiesType": "Color", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "Color", "parameters": ""}
+      }
+    },
+    "ColorCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "Color", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "Color", "parameters": "name"},
+        "add": {"kind": "method", "type": "Color", "propertiesType": "Color", "parameters": "properties"},
+        "everyItem": {"kind": "method", "type": "Color", "parameters": ""}
+      }
+    },
+    "SpreadCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "Spread", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "Spread", "parameters": "name"},
+        "everyItem": {"kind": "method", "type": "Spread", "parameters": ""}
+      }
+    },
+    "Spread": {
+      "members": {
+        "pages": {"type": "PageCollection"},
+        "pageItems": {"type": "PageItemCollection"},
+        "name": {"type": "string"},
+        "allowPageShuffle": {"type": "boolean"}
+      }
+    },
+    "MasterSpreadCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "MasterSpread", "parameters": "index"},
+        "itemByName": {"kind": "method", "type": "MasterSpread", "parameters": "name"},
+        "everyItem": {"kind": "method", "type": "MasterSpread", "parameters": ""}
+      }
+    },
+    "MasterSpread": {
+      "members": {
+        "name": {"type": "string"},
+        "pages": {"type": "PageCollection"},
+        "pageItems": {"type": "PageItemCollection"},
+        "remove": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    }
+  }
+}

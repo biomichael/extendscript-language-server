@@ -1,0 +1,230 @@
+{
+  "globals": {
+    "app": {
+      "kind": "class",
+      "type": "PhotoshopApplication",
+      "detail": "Photoshop Application",
+      "documentation": "The Photoshop application object."
+    },
+    "LayerKind": {
+      "kind": "class",
+      "type": "LayerKind",
+      "detail": "Photoshop layer kinds"
+    },
+    "Units": {
+      "kind": "class",
+      "type": "PhotoshopUnits",
+      "detail": "Photoshop measurement units"
+    },
+    "DialogModes": {
+      "kind": "class",
+      "type": "DialogModes",
+      "detail": "Photoshop dialog modes"
+    },
+    "SaveOptions": {
+      "kind": "class",
+      "type": "PhotoshopSaveOptions",
+      "detail": "Photoshop save options"
+    },
+    "Extension": {
+      "kind": "class",
+      "type": "PhotoshopExtension",
+      "detail": "Photoshop file-name extension behavior"
+    },
+    "FitOptions": {
+      "kind": "class",
+      "type": "PhotoshopFitOptions",
+      "detail": "Photoshop fit options"
+    },
+    "AnchorPosition": {
+      "kind": "class",
+      "type": "PhotoshopAnchorPosition",
+      "detail": "Photoshop anchor positions"
+    },
+    "ActionDescriptor": {
+      "kind": "class",
+      "type": "ActionDescriptor",
+      "detail": "Photoshop action descriptor",
+      "parameters": ""
+    },
+    "ActionReference": {
+      "kind": "class",
+      "type": "ActionReference",
+      "detail": "Photoshop action reference",
+      "parameters": ""
+    },
+    "SolidColor": {
+      "kind": "class",
+      "type": "SolidColor",
+      "detail": "Photoshop solid color",
+      "parameters": ""
+    }
+  },
+  "types": {
+    "PhotoshopApplication": {
+      "members": {
+        "activeDocument": {"type": "PhotoshopDocument", "documentation": "The active Photoshop document."},
+        "documents": {"type": "PhotoshopDocumentCollection"},
+        "selection": {"type": "Array"},
+        "preferences": {"type": "PhotoshopPreferences"},
+        "displayDialogs": {"type": "DialogModes"},
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "open": {"kind": "method", "type": "PhotoshopDocument", "parameters": "file, asSmartObject"},
+        "bringToFront": {"kind": "method", "type": "void", "parameters": ""},
+        "extractLabel": {"kind": "method", "type": "string", "parameters": "key"},
+        "insertLabel": {"kind": "method", "type": "void", "parameters": "key, value"}
+      }
+    },
+    "PhotoshopPreferences": {
+      "members": {
+        "rulerUnits": {"type": "PhotoshopUnits"},
+        "typeUnits": {"type": "PhotoshopUnits"},
+        "interpolation": {"type": "string"}
+      }
+    },
+    "PhotoshopDocument": {
+      "members": {
+        "name": {"type": "string"},
+        "fullName": {"type": "File"},
+        "width": {"type": "UnitValue"},
+        "height": {"type": "UnitValue"},
+        "resolution": {"type": "number"},
+        "activeLayer": {"type": "PhotoshopLayer"},
+        "layers": {"type": "PhotoshopLayerCollection"},
+        "artLayers": {"type": "PhotoshopLayerCollection"},
+        "channels": {"type": "Array"},
+        "pathItems": {"type": "Array"},
+        "xmpMetadata": {"type": "XMPMetadata"},
+        "save": {"kind": "method", "type": "void", "parameters": ""},
+        "saveAs": {"kind": "method", "type": "void", "parameters": "file, options, asCopy, extensionType"},
+        "close": {"kind": "method", "type": "void", "parameters": "saveOptions"},
+        "paste": {"kind": "method", "type": "void", "parameters": ""},
+        "duplicate": {"kind": "method", "type": "PhotoshopDocument", "parameters": "name, merge"},
+        "resizeImage": {"kind": "method", "type": "void", "parameters": "width, height, resolution, resampleMethod"},
+        "resizeCanvas": {"kind": "method", "type": "void", "parameters": "width, height, anchor"},
+        "suspendHistory": {"kind": "method", "type": "void", "parameters": "name, action"}
+      }
+    },
+    "PhotoshopDocumentCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PhotoshopDocument", "parameters": "index"},
+        "add": {"kind": "method", "type": "PhotoshopDocument", "parameters": "width, height, resolution, name"}
+      }
+    },
+    "PhotoshopLayerCollection": {
+      "members": {
+        "length": {"type": "number"},
+        "item": {"kind": "method", "type": "PhotoshopLayer", "parameters": "index"},
+        "add": {"kind": "method", "type": "PhotoshopLayer", "parameters": ""}
+      }
+    },
+    "PhotoshopLayer": {
+      "members": {
+        "name": {"type": "string"},
+        "typename": {"type": "string"},
+        "kind": {"type": "LayerKind"},
+        "visible": {"type": "boolean"},
+        "bounds": {"type": "Array"},
+        "layers": {"type": "PhotoshopLayerCollection"},
+        "textItem": {"type": "PhotoshopTextItem"},
+        "resize": {"kind": "method", "type": "void", "parameters": "horizontal, vertical, anchor"},
+        "copy": {"kind": "method", "type": "void", "parameters": "merged"},
+        "duplicate": {"kind": "method", "type": "PhotoshopLayer", "parameters": "relativeObject, insertionLocation"},
+        "remove": {"kind": "method", "type": "void", "parameters": ""}
+      }
+    },
+    "PhotoshopTextItem": {
+      "members": {
+        "contents": {"type": "string"},
+        "font": {"type": "string"},
+        "size": {"type": "UnitValue"},
+        "color": {"type": "SolidColor"},
+        "justification": {"type": "string"},
+        "leading": {"type": "UnitValue"}
+      }
+    },
+    "XMPMetadata": {
+      "members": {
+        "rawData": {"type": "string"}
+      }
+    },
+    "LayerKind": {
+      "members": {
+        "NORMAL": {"kind": "constant", "type": "LayerKind"},
+        "TEXT": {"kind": "constant", "type": "LayerKind"},
+        "SMARTOBJECT": {"kind": "constant", "type": "LayerKind"},
+        "SOLIDFILL": {"kind": "constant", "type": "LayerKind"},
+        "LAYER3D": {"kind": "constant", "type": "LayerKind"}
+      }
+    },
+    "PhotoshopUnits": {
+      "members": {
+        "PIXELS": {"kind": "constant", "type": "PhotoshopUnits"},
+        "INCHES": {"kind": "constant", "type": "PhotoshopUnits"},
+        "CENTIMETERS": {"kind": "constant", "type": "PhotoshopUnits"},
+        "MILLIMETERS": {"kind": "constant", "type": "PhotoshopUnits"},
+        "POINTS": {"kind": "constant", "type": "PhotoshopUnits"},
+        "PICAS": {"kind": "constant", "type": "PhotoshopUnits"}
+      }
+    },
+    "DialogModes": {
+      "members": {
+        "ALL": {"kind": "constant", "type": "DialogModes"},
+        "ERROR": {"kind": "constant", "type": "DialogModes"},
+        "NO": {"kind": "constant", "type": "DialogModes"}
+      }
+    },
+    "PhotoshopSaveOptions": {
+      "members": {
+        "DONOTSAVECHANGES": {"kind": "constant", "type": "PhotoshopSaveOptions"},
+        "PROMPTTOSAVECHANGES": {"kind": "constant", "type": "PhotoshopSaveOptions"},
+        "SAVECHANGES": {"kind": "constant", "type": "PhotoshopSaveOptions"}
+      }
+    },
+    "PhotoshopExtension": {
+      "members": {
+        "LOWERCASE": {"kind": "constant", "type": "PhotoshopExtension"},
+        "UPPERCASE": {"kind": "constant", "type": "PhotoshopExtension"}
+      }
+    },
+    "PhotoshopFitOptions": {
+      "members": {
+        "FRAME_TO_CONTENT": {"kind": "constant", "type": "PhotoshopFitOptions"}
+      }
+    },
+    "PhotoshopAnchorPosition": {
+      "members": {
+        "MIDDLECENTER": {"kind": "constant", "type": "PhotoshopAnchorPosition"},
+        "TOPLEFT": {"kind": "constant", "type": "PhotoshopAnchorPosition"},
+        "BOTTOMRIGHT": {"kind": "constant", "type": "PhotoshopAnchorPosition"}
+      }
+    },
+    "ActionDescriptor": {
+      "members": {
+        "putPath": {"kind": "method", "type": "void", "parameters": "key, path"},
+        "putProperty": {"kind": "method", "type": "void", "parameters": "classID, key, value"},
+        "putEnumerated": {"kind": "method", "type": "void", "parameters": "key, type, value"},
+        "putClass": {"kind": "method", "type": "void", "parameters": "key, classID"},
+        "putBoolean": {"kind": "method", "type": "void", "parameters": "key, value"},
+        "putInteger": {"kind": "method", "type": "void", "parameters": "key, value"},
+        "putString": {"kind": "method", "type": "void", "parameters": "key, value"}
+      }
+    },
+    "ActionReference": {
+      "members": {
+        "putProperty": {"kind": "method", "type": "void", "parameters": "classID, key"},
+        "putEnumerated": {"kind": "method", "type": "void", "parameters": "classID, type, value"}
+      }
+    },
+    "SolidColor": {
+      "members": {
+        "rgb": {"type": "Object"},
+        "cmyk": {"type": "Object"},
+        "lab": {"type": "Object"},
+        "gray": {"type": "Object"}
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "Include file": {
+    "prefix": "include",
+    "body": ["#include \"${1:file.jsxinc}\""],
+    "description": "Include an ExtendScript file."
+  },
+  "For loop": {
+    "prefix": "for",
+    "body": ["for (var ${1:i} = 0; ${1:i} < ${2:count}; ${1:i}++) {", "\t$0", "}"],
+    "description": "Create a traditional ExtendScript for loop."
+  },
+  "Try/catch": {
+    "prefix": "try",
+    "body": ["try {", "\t$1", "} catch (e) {", "\t$0", "}"],
+    "description": "Create a try/catch block."
+  }
+}

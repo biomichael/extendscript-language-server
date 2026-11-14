@@ -1,0 +1,14 @@
+.git/**
+.agents/**
+.codex/**
+*.chm
+*.zip
+indesign14/**
+test/**
+tools/**
+**/*.test.js
+node_modules/**
+!node_modules/
+!node_modules/acorn/
+!node_modules/acorn/**
+*.log
